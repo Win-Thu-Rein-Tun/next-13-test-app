@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main>
+    <main className="text-3xl font-bold underline">
       <div>Hello Next</div>
     </main>
   );
