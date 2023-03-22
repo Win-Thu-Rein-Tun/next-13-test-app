@@ -1,11 +1,15 @@
-import Link from "next/link"
+import Link from "next/link";
+import Login from "./login";
 
 export default async function Nav() {
-    return(
-        <nav>
-            <Link href={"/"}>
-                <h1>Sent it</h1>
-            </Link>
-        </nav>
-    )
+  return (
+    <nav className="flex justify-between items-center py-8">
+      <Link href={"/"}>
+        <h1 className="font-bold text-lg">Sent it</h1>
+      </Link>
+      <ul className="flex items-center gap-6">
+        <Login />
+      </ul>
+    </nav>
+  );
 }
