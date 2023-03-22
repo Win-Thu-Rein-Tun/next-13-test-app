@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  return (
+  return ( 
     <form className="bg-white my-4 p-4 rounded-md">
       <div className="flex flex-col my-4">
         <textarea
