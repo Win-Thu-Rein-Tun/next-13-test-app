@@ -17,9 +17,10 @@ export default function CreatePost() {
         if (error instanceof AxiosError) {
           toast.error(error?.response?.data.message);
         }
+        setIsDisabled(false);
       },
       onSuccess: (data) => {
-        console.log(data);
+        toast.success("Posted successfully");
         setTitle("");
         setIsDisabled(false);
       },

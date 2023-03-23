@@ -19,9 +19,9 @@ export default async function handler(
 
     //Check
     if (title.length > 300)
-      return res.status(403).json({ message: "!Less than 300 words" });
+      return res.status(403).json({ message: "Less than 300 words" });
     if (!title.length)
-      return res.status(403).json({ message: "!Don't leave empty" });
+      return res.status(403).json({ message: "Please don't leave empty" });
 
     //Create
     try {
