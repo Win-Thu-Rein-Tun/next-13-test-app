@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  return ( 
+
+  const { mutate } = useMutation(
+    async (title) => await axios.post("/api/posts/createPost", { title })
+  );
+
+  return (
     <form className="bg-white my-4 p-4 rounded-md">
       <div className="flex flex-col my-4">
         <textarea
@@ -17,7 +24,11 @@ export default function CreatePost() {
         ></textarea>
       </div>
       <div className="flex justify-between items-center gap-2">
-        <p className={`font-bold text-sm ${title.length > 300 ? "text-red-700" : "text-gray-600"}`}>{`${title.length}/300`}</p>
+        <p
+          className={`font-bold text-sm ${
+            title.length > 300 ? "text-red-700" : "text-gray-600"
+          }`}
+        >{`${title.length}/300`}</p>
         <button
           type="submit"
           disabled={isDisabled}
