@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
+import prisma from "../../../prisma/client"
 
 export default async function handler(
   req: NextApiRequest,
@@ -19,5 +20,13 @@ export default async function handler(
       return res.status(403).json({ messsage: "Don't leave empty" });
 
     //Create
+    try {
+      const result = await prisma.post.create({
+
+      })
+      
+    } catch (error) {
+      
+    }
   }
 }
