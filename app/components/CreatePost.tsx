@@ -9,11 +9,17 @@ export default function CreatePost() {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const { mutate } = useMutation(
-    async (title) => await axios.post("/api/posts/createPost", { title })
+    async (title: string) => await axios.post("/api/posts/createPost", { title })
   );
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsDisabled(true);
+    mutate(title);
+  };
+
   return (
-    <form className="bg-white my-4 p-4 rounded-md">
+    <form onSubmit={handleSubmit} className="bg-white my-4 p-4 rounded-md">
       <div className="flex flex-col my-4">
         <textarea
           onChange={(e) => setTitle(e.target.value)}
