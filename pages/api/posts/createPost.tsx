@@ -10,6 +10,7 @@ export default async function handler(
   if (req.method === "POST") {
     const session = await getServerSession(req, res, authOptions);
     if (!session) return res.status(401).json({ message: "You need to login" });
+    
     const title: string = req.body.title;
 
     //User
