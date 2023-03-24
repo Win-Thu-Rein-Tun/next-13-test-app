@@ -13,6 +13,9 @@ export default function Home() {
     queryFn: allPosts,
     queryKey: ["posts"],
   });
+  if (error) return error;
+  if (isLoading) return "Loading...";
+  console.log(data);
   return (
     <main>
       <div>Hello Next</div>
