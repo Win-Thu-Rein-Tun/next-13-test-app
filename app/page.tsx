@@ -5,7 +5,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 const allPosts = async () => {
-  const response = await axios.get("/api/posts/getPosts");
+  const response = await axios.get("/api/posts/getPost");
   return response.data;
 };
 export default function Home() {
