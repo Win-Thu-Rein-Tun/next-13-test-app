@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  let toastPostID: string;
+  const [toastPostID, setToastPostID] = useState("");
 
   const { mutate } = useMutation(
     async (title: string) =>
@@ -21,7 +21,7 @@ export default function CreatePost() {
         setIsDisabled(false);
       },
       onSuccess: (data) => {
-        toast.success("Post has been made 🔥", { id: toastPostID });
+        toast.success("Post Successfully", { id: toastPostID });
         setTitle("");
         setIsDisabled(false);
       },
@@ -30,7 +30,8 @@ export default function CreatePost() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toastPostID = toast.loading("Creating your post", { id: toastPostID });
+    const newToastPostID = toast.loading("Creating you post");
+    setToastPostID(newToastPostID);
     setIsDisabled(true);
     mutate(title);
   };
