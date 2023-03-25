@@ -13,3 +13,5 @@ const Posts = () => (
         </div>
     </div>
 )
+
+export default Posts
