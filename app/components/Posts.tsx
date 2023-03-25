@@ -18,7 +18,7 @@ const Posts = ({ name, avatar, postTitle, id }) => (
       <p className="break-all">{postTitle}</p>
     </div>
     <div className="flex gap-4 items-center cursor-pointer">
-      <Link href={`/post/${id}`}><p className="text-sm font-bold text-gray-700">Comments</p></Link>
+      <Link href={`/posts/${id}`}><p className="text-sm font-bold text-gray-700">Comments</p></Link>
     </div>
   </div>
 );
