@@ -21,7 +21,8 @@ export default function Home() {
     <main>
       <CreatePost />
       {data?.map((post) => (
-        <Posts key={post.id} name={post.user.name} avatar={post.user.image} postTitle={post.title} id={post.id}/>
+        <Posts comments={post.comments}
+        key={post.id} name={post.user.name} avatar={post.user.image} postTitle={post.title} id={post.id}/>
       ))}
     </main>
   );
