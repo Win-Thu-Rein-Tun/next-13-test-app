@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const Posts = ({ name, avatar, postTitle, id }) => (
+const Posts = ({ name, avatar, postTitle, id, comments }) => (
   <div className="my-8 p-8 bg-white rounded-lg">
     <div className="flex items-center gap-2">
       <Image
@@ -15,10 +15,14 @@ const Posts = ({ name, avatar, postTitle, id }) => (
       <h3 className="font-bold text-gray-700">{name}</h3>
     </div>
     <div className="my-8">
-      <p className="break-all text-sm">{postTitle}</p>
+      <p className="break-all text-sm text-gray-700">{postTitle}</p>
     </div>
     <div className="flex gap-4 items-center cursor-pointer">
-      <Link href={`/posts/${id}`}><p className="text-sm font-bold text-gray-700">Comments</p></Link>
+      <Link href={`/posts/${id}`}>
+        <p className="text-sm font-bold text-gray-700">
+          {comments?.length}Comments
+        </p>
+      </Link>
     </div>
   </div>
 );
