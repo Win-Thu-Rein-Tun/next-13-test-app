@@ -2,7 +2,19 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const Posts = ({ name, avatar, postTitle, id, comments }) => (
+type PostProps = {
+  id: string
+  avatar: string
+  name: string
+  postTitle: string
+  comments?: {
+    id: string
+    postId: string
+    userId: string
+  }[]
+}
+
+const Posts = ({ name, avatar, postTitle, id, comments }: PostProps) => (
   <div className="my-8 p-8 bg-white rounded-lg">
     <div className="flex items-center gap-2">
       <Image
