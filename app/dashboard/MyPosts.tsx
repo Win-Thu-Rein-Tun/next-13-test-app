@@ -11,7 +11,7 @@ const fetchAuthPosts = async () => {
 };
 
 export default function MyPosts() {
-  const { data, isLoading } = useQuery<AuthPost>({
+  const { data, isLoading } = useQuery({
     queryFn: fetchAuthPosts,
     queryKey: ["auth-posts"],
   });
