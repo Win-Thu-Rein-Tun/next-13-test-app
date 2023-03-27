@@ -59,23 +59,17 @@ export default function EditPost({
         // transition={{ ease: "easeOut" }}
         className="bg-white my-8 p-8 rounded-lg "
       >
-        <div className="flex items-center gap-2">
-          <Image
-            width={32}
-            height={32}
-            src={avatar}
-            alt="avatar"
-            className="rounded-full"
-          />
-          <h3 className="font-bold text-gray-700">{name}</h3>
-        </div>
-        <div className="my-8 ">
-          <p className="break-all text-sm text-gray-700">{title}</p>
-        </div>
-        <div className="flex items-center gap-4 ">
-          <p className=" text-sm font-bold text-gray-700">
-            {comments?.length} Comments
-          </p>
+        <div className="flex justify-between">
+          <div className="flex items-center gap-2">
+            <Image
+              width={32}
+              height={32}
+              src={avatar}
+              alt="avatar"
+              className="rounded-full"
+            />
+            <h3 className="font-bold text-gray-700">{name}</h3>
+          </div>
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -85,6 +79,14 @@ export default function EditPost({
           >
             Delete
           </button>
+        </div>
+        <div className="my-8 ">
+          <p className="break-all text-sm text-gray-700">{title}</p>
+        </div>
+        <div className="flex items-center gap-4 ">
+          <p className=" text-sm font-bold text-gray-700">
+            {comments?.length} Comments
+          </p>
         </div>
       </div>
       {toggle && <Toggle deletePost={deletePost} setToggle={setToggle} />}
