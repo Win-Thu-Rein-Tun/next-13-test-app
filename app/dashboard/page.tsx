@@ -4,14 +4,13 @@ import { redirect } from "next/navigation";
 import MyPosts from "./MyPosts";
 
 export default async function Dashboard() {
-    const session = await getServerSession(authOptions)
-    if(!session) {
-        redirect("/api/auth/signin")
-    }
-    return(
-        <main>
-            <h1>Welcome back <span className="text-2xl font-bold">{session?.user?.name}</span></h1>
-            <MyPosts/>
-        </main>
-    )
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/api/auth/signin");
+  }
+  return (
+    <main>
+      <MyPosts />
+    </main>
+  );
 }
